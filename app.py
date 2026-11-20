@@ -134,8 +134,7 @@ def render_statistics(df: pd.DataFrame):
     left, right = st.columns(2)
     with left:
         st.markdown("**Correlation matrix**")
-        st.dataframe(analysis.correlation_matrix(df).style.background_gradient(cmap="RdBu", vmin=-1, vmax=1),
-                     width="stretch")
+        st.dataframe(analysis.correlation_matrix(df), width="stretch")
     with right:
         st.markdown("**Outliers by 1.5×IQR rule (kept in data, for information)**")
         st.dataframe(analysis.iqr_outlier_counts(df).to_frame(), width="stretch")
